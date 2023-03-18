@@ -4,18 +4,25 @@ import { StatisticElement } from '../StatisticElement/StatisticElement';
 
 export function Statistics({ title, stats }) {
   console.log(stats);
-  // { id, label, percentage } =  stats;
-  return (
-    <section className="statistics">
-      {title && <h2 className="title">{title}</h2>}
 
-      <ul className="stat-list">
+  const numberOfElements = stats.length;
+
+  return (
+    <section className={css.statistics}>
+      {title && <h2 className={css.title}>{title}</h2>}
+
+      <ul className={css['stat-list']}>
         {stats.map(stat => {
+          const style = {
+            backgroundColor: getRandomHexColor(),
+            width: 360 / numberOfElements,
+          };
           return (
             <StatisticElement
               key={stat.id}
               label={stat.label}
               percentage={stat.percentage}
+              style={style}
             />
           );
         })}
@@ -34,7 +41,6 @@ Statistics.propTypes = {
     })
   ),
 };
-
 
 function getRandomHexColor() {
   return `#${Math.floor(Math.random() * 16777215).toString(16)}`;
