@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import { StatisticElement } from '../StatisticElement/StatisticElement';
 
 export function Statistics({ title, stats }) {
-  console.log(stats);
+//   console.log(stats);
 
   const numberOfElements = stats.length;
 
